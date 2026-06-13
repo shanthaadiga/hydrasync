@@ -23,6 +23,7 @@ let globalTelemetryChartInstance = null;
 
 let serialPort = null;
 let serialReader = null;
+let weatherTargetModifier = 0; // Guard variable to track weather offsets cleanly
 
 const analyticalGraphData = {
     daily: {
@@ -159,7 +160,8 @@ async function fetchLiveLocationAndWeather() {
         
         // Auto-recalibrate target benchmarks dynamically if the campus is experiencing hot days
         if(parseInt(currentTemp) > 30) {
-            userData.calculatedBaseTarget += 300; 
+            weatherTargetModifier = 300; 
+            userData.calculatedBaseTarget += weatherTargetModifier;
             updateVisualMetricsProgressGauges();
         }
     } catch (err) {
@@ -183,7 +185,7 @@ function navigateToTab(targetViewId, clickedTabElement) {
     if (clickedTabElement) clickedTabElement.classList.add('active');
     
     if (targetViewId === 'water-tracker') {
-        setTimeout(renderLongitudinalIntakeGraph, 50);
+        requestAnimationFrame(() => renderLongitudinalIntakeGraph());
     }
     if (targetViewId === 'recipes-fruits') {
         evaluateAllergyFilters();
@@ -222,7 +224,9 @@ function handleRegistration() {
 
     let baseline = userData.weight * 35;
     if (userData.gender === 'male') baseline += 250;
-    userData.calculatedBaseTarget = Math.round(baseline);
+    
+    // Calculate baseline and cleanly inject weather modifier if it was already applied
+    userData.calculatedBaseTarget = Math.round(baseline) + weatherTargetModifier;
 
     document.getElementById('prof-name').innerText = userData.name;
     document.getElementById('prof-phone').innerText = userData.phone;
@@ -591,6 +595,8 @@ async function initiateHardwareSerialConnection() {
         await serialPort.open({ baudRate: 115200 });
         badge.innerText = "Bottle Connected";
         badge.className = "hw-badge hw-connected";
+        
+        // Corrected selector element targeting to cleanly hide the custom button ID
         document.getElementById('connect-serial-btn').style.display = "none";
         
         readHardwareStreamChannel();
