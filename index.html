@@ -128,12 +128,12 @@
                         <h3 class="card-header-accent"><i class="fas fa-link"></i> Smart Bottle Connection</h3>
                         <p class="card-section-desc">Connect your physical water bottle hardware link below to log drinks automatically.</p>
                         
-                        <div class="connection-interface-bar">
-                            <button id="connect-serial-btn" class="btn-hardware-connect" style="cursor: default; pointer-events: none;">
-                                <i class="fas fa-wifi"></i> Hardware Stream Active
-                            </button>
-                            <span id="hardware-status-badge" class="hw-badge hw-disconnected">Connecting...</span>
-                        </div>
+                        <div class="hardware-controls-container">
+    <button id="connect-serial-btn" class="btn-hardware-connect" onclick="if(typeof initiateHardwareSerialConnection === 'function') { initiateHardwareSerialConnection(); }">
+        <i class="fas fa-bolt-lightning"></i> Stream Hardware Data
+    </button>
+    <span id="hardware-status-badge" class="hw-badge hw-disconnected">Disconnected</span>
+</div>
 
                         <div class="telemetry-dials-layout">
                             <div class="dial-node">
