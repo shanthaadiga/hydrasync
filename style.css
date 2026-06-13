@@ -117,6 +117,7 @@ input:focus, select:focus {
     width: 100%;
     margin-top: 1rem;
     font-size: 1rem;
+    transition: all 0.2s ease-in-out;
 }
 
 /* TOP STATUS PANEL WITH GENTLE LIGHT BLUE TINT */
@@ -164,6 +165,7 @@ input:focus, select:focus {
     color: var(--text-muted);
     font-size: 1.5rem;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .profile-area { position: relative; }
@@ -213,6 +215,7 @@ input:focus, select:focus {
     font-weight: 600;
     cursor: pointer;
     border-bottom: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
 }
 .nav-item.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
@@ -238,6 +241,7 @@ input:focus, select:focus {
     border-radius: 8px;
     cursor: pointer;
     border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
 }
 .allergy-tag-label input { width: auto; cursor: pointer; }
 
@@ -255,7 +259,7 @@ input:focus, select:focus {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 2rem;
     margin-top: 1rem;
 }
@@ -295,6 +299,7 @@ input:focus, select:focus {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
+    transition: all 0.2s ease-in-out;
 }
 
 .hw-badge { padding: 0.35rem 0.75rem; font-weight: 700; font-size: 0.75rem; border-radius: 6px; }
@@ -366,7 +371,7 @@ input:focus, select:focus {
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background: conic-gradient(var(--accent-blue) 0deg, var(--border-color) 0deg);
+    background: conic-gradient(var(--accent-blue) var(--progress-deg, 0deg), var(--border-color) var(--progress-deg, 0deg));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,7 +424,7 @@ input:focus, select:focus {
 .graph-card-wrapper { width: 100%; height: 380px; padding: 1.5rem; margin-top: 1rem; }
 
 /* HEALTH QUESTIONNAIRE LOGS */
-.btn-secondary { background: none; border: 2px solid var(--accent-teal); color: var(--accent-teal); padding: 0.85rem; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 0.5rem; }
+.btn-secondary { background: none; border: 2px solid var(--accent-teal); color: var(--accent-teal); padding: 0.85rem; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 0.5rem; transition: all 0.2s ease-in-out; }
 .premium-insights-card { background: linear-gradient(145deg, var(--bg-card) 0%, #f8fafc 100%); border-radius: 20px; border: 1px solid var(--border-color); overflow: hidden; }
 .insight-glow-header { background: rgba(13, 148, 136, 0.04); padding: 1.25rem; border-bottom: 1px solid var(--border-color); }
 .insight-glow-header h3 { color: var(--accent-teal); font-size: 1rem; }
@@ -433,7 +438,7 @@ input:focus, select:focus {
 /* RECIPES & HIGHER CONTENT INFUSION GRID MODULES */
 .full-width { grid-column: 1 / -1; }
 .tabs-control-bar { display: flex; gap: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
-.tab-selector { background: none; border: none; color: var(--text-muted); font-size: 1rem; font-weight: 600; padding: 0.75rem 0; cursor: pointer; border-bottom: 2px solid transparent; }
+.tab-selector { background: none; border: none; color: var(--text-muted); font-size: 1rem; font-weight: 600; padding: 0.75rem 0; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s ease; }
 .tab-selector.active { color: var(--accent-teal); border-bottom-color: var(--accent-teal); }
 
 .list-container-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
@@ -491,7 +496,7 @@ input:focus, select:focus {
 .store-details { display: flex; flex-direction: column; gap: 0.25rem; width: 100%; }
 .store-details h3 { font-size: 1rem; font-weight: 700; color: var(--text-main); }
 .store-details p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
-.btn-purchase-reward { background-color: var(--bg-app); color: var(--accent-gold); border: 1px solid rgba(217, 119, 6, 0.25); padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; align-self: flex-start; margin-top: 0.4rem; }
+.btn-purchase-reward { background-color: var(--bg-app); color: var(--accent-gold); border: 1px solid rgba(217, 119, 6, 0.25); padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; align-self: flex-start; margin-top: 0.4rem; transition: all 0.2s ease-in-out; }
 .btn-purchase-reward:hover { background-color: var(--accent-gold); color: #fff; }
 
 /* RESPONSIVE LAYOUT CONSTRAINTS */
